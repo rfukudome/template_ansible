@@ -1,0 +1,12 @@
+- name: Setup
+  # sudo権限
+  become: true 
+  hosts: # hostsから指定 #
+  roles:
+    - role: role_common_1
+      tag: test_release
+
+  # task実行後、reboot
+  post_task:
+    - name: reboot 
+      reboot:
